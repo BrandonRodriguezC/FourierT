@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+*{
+  font-family: 'IBM Plex Sans', sans-serif;
+  color:#191919
+}
+body{
+  background-color: #FAFAFA
+}
+.bibliography{
+  color:grey;
+  font-weight: lighter;
+  font-style: italic;
+  margin-left: 80%;
+}
+
+p{
+  text-align: justify;
+  align-content: center;
+}
+
+a:visited {
+  color: grey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+body{
+  margin-left:12.5%;
+  width: 75%;
+  text-align: center
+}

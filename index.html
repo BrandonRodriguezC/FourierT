@@ -1,0 +1,142 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fourier</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+
+  <!-- <script src="script.js"></script> -->
+</head>
+
+<body>
+  <div class="main">
+      <h1>Series de Fourier y transformadas</h1>
+      <p>Las series de Fourier son una serie infinita que converge puntualmente a una función periódica y continua a trozos (o por partes). Las series de Fourier constituyen la herramienta matemática básica del análisis de Fourier empleado para analizar funciones periódicas a través de la descomposición de dicha función en una suma infinita de funciones sinusoidales mucho más simples (como combinación de senos y cosenos con frecuencias enteras).</p>
+      <p class="bibliography"><a href="https://en.wikipedia.org/wiki/Fourier_series">tomado de Wikipedia</a></p>
+      <p>Ahora en español, una serie de Fourier es una manera de representar una funcion como la suma de olas simples senoidales y cosenoidales, cada una con un número entero de períodos en el período de la función.</p>  
+      
+        <p>Las series de Fourier tienen la forma:</p>
+        <p>
+             $${\displaystyle {a_{0}}+\sum _{n=1}^{\infty }\left[a_{n}\cos {\frac {n\pi }{L}}t+b_{n}\sin {\frac {n\pi }{L}}t\right]}$$
+          </p>
+      <p>En aplicaciones de ingeniería, generalmente se presume que la serie de Fourier converge en todas partes excepto en discontinuidades, ya que las funciones encontradas en ingeniería se comportan mejor que las que los matemáticos pueden proporcionar como contra-ejemplos a esta presunción.</p>
+    <p>En este ejemplo practico no he aplicado ninguna funcion en particular, por lo cual en este punto esta basada en una onda cuadrada. Mueve el slider para poder verla converger.  </p>
+     
+    <div >
+
+      <script>
+//        let time = 0;
+// let wave = [];
+
+// function setup() {
+//   createCanvas(600, 400);
+//   slider = createSlider(1, 30, 5);
+// }
+
+// function draw() {
+//   background(0);
+//   translate(150, 200);
+
+//   let x = 0;
+//   let y = 0;
+    
+//   for (let i = 1; i < slider.value() ; i++) {
+//     let prevx = x;
+//     let prevy = y;
+//     let number = i;
+
+//     if(i%2==1){ number *= -1; }
+//     let radio = 75 * (2 / (number * PI));
+    
+//     x += radio * cos(i * time);
+//     y += radio * sin(i * time);
+
+//     stroke(255, 100);
+//     noFill();
+//     ellipse(prevx, prevy, radio * 2);
+
+//     fill(255);
+//     stroke(255);
+//     line(prevx, prevy, x, y);
+//     ellipse(x, y, 8);
+//   }
+//   wave.unshift(y);
+//   translate(200, 0);
+//   line(x - 200, y, 0, wave[0]);
+//   beginShape();
+//   noFill();
+//   for (let i = 0; i < wave.length; i++) {
+//     vertex(i, wave[i]);
+//   }
+//   endShape();
+
+//   time += 0.05;
+
+//   if (wave.length > 250) {
+//     wave.pop();
+//   }
+// }
+
+let time = 0;
+let wave = [];
+let slider;
+
+function setup() {
+ createCanvas(700, 400);
+  slider = createSlider(1, 10, 5);
+}
+
+function draw() {
+  background(0);
+  translate(150, 200);
+
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < slider.value() ; i++) {
+    let prevx = x;
+    let prevy = y;
+    
+    let n = i * 2 + 1;
+    let radio = 75 * (4 / (n * PI));
+    x += radio * cos(n * time);
+    y += radio * sin(n * time);
+
+    stroke(255, 100);
+    noFill();
+    ellipse(prevx, prevy, radio * 2);
+
+    fill(255);
+    stroke(255);
+    line(prevx, prevy, x, y);
+    ellipse(x, y, 8);
+  }
+  wave.unshift(y);
+  translate(200, 0);
+  line(x - 200, y, 0, wave[0]);
+  beginShape();
+  noFill();
+  for (let i = 0; i < wave.length; i++) {
+    vertex(i, wave[i]);
+  }
+  endShape();
+
+  time += 0.05;
+
+  if (wave.length > 250) {
+    wave.pop();
+  }
+}
+</script>
+    </div>
+
+    
+  </div>
+  </body>
+
+</html>
